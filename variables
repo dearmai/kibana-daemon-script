@@ -1,0 +1,3 @@
+KB_PORT=5601
+
+TARGET_NAME=kibana

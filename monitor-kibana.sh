@@ -122,7 +122,7 @@ case $1 in
     run)
         print "Run"
         cd ${TARGET_PATH}
-        bin/elasticsearch
+        bin/kibana
         ;;
     start)
         if [ -e ${PID_PATH} ]; then
@@ -141,7 +141,7 @@ case $1 in
         do
             show_status
             if [ $(check_netstat) = "alive" ] && [ -e ${PID_PATH} ]; then
-                print "elasticsearch가 정상적으로 시작됨"
+                print "${TARGET_NAME} 정상적으로 시작됨"
                 break;
             fi
             sleep 1
@@ -165,7 +165,7 @@ case $1 in
                 status_pidfile > /dev/null 2>&1
                 show_status
                 if [ $(check_netstat) = "die" ] && ! [ -e ${PID_PATH} ]; then
-                    print "elasticsearch가 정상적으로 종료 됨"
+                    print "${TARGET_NAME} 정상적으로 종료 됨"
                     break;
                 fi
                 sleep 1
